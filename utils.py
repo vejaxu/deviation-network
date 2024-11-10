@@ -18,9 +18,9 @@ import matplotlib.pyplot as plt
 from sklearn.externals.joblib import Memory
 from sklearn.datasets import load_svmlight_file
 
-mem = Memory("./dataset/svm_data")
+# mem = Memory("./dataset/svm_data")
 
-@mem.cache
+# @mem.cache
 def get_data_from_svmlight_file(path):
     data = load_svmlight_file(path)
     return data[0], data[1]
@@ -36,14 +36,14 @@ def dataLoading(path):
     x = x_df.values
     print("Data shape: (%d, %d)" % x.shape)
     
-    return x, labels;
+    return x, labels
 
 
 def aucPerformance(mse, labels):
     roc_auc = roc_auc_score(labels, mse)
     ap = average_precision_score(labels, mse)
     print("AUC-ROC: %.4f, AUC-PR: %.4f" % (roc_auc, ap))
-    return roc_auc, ap;
+    return roc_auc, ap
 
 def writeResults(name, n_samples, dim, n_samples_trn, n_outliers_trn, n_outliers, depth, rauc, ap, std_auc, std_ap, train_time, test_time, path = "./results/auc_performance_cl0.5.csv"):    
     csv_file = open(path, 'a') 
@@ -70,9 +70,9 @@ import matplotlib.pyplot as plt
 from sklearn.externals.joblib import Memory
 from sklearn.datasets import load_svmlight_file
 
-mem = Memory("./dataset/svm_data")
+# mem = Memory("./dataset/svm_data")
 
-@mem.cache
+# @mem.cache
 def get_data_from_svmlight_file(path):
     data = load_svmlight_file(path)
     return data[0], data[1]
@@ -88,14 +88,14 @@ def dataLoading(path):
     x = x_df.values
     print("Data shape: (%d, %d)" % x.shape)
     
-    return x, labels;
+    return x, labels
 
 
 def aucPerformance(mse, labels):
     roc_auc = roc_auc_score(labels, mse)
     ap = average_precision_score(labels, mse)
     print("AUC-ROC: %.4f, AUC-PR: %.4f" % (roc_auc, ap))
-    return roc_auc, ap;
+    return roc_auc, ap
 
 def writeResults(name, n_samples, dim, n_samples_trn, n_outliers_trn, n_outliers, depth, rauc, ap, std_auc, std_ap, train_time, test_time, path = "./results/auc_performance_cl0.5.csv"):    
     csv_file = open(path, 'a') 
